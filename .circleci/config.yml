@@ -1,13 +1,14 @@
-# This config is equivalent to both the '.circleci/extended/orb-free.yml' and the base '.circleci/config.yml'
+version: 2.1
+
+workflows:
+  test-deploy:
+    job:
+      - test
 jobs:
-  build:
-    docker:
-      - image: cimg/base:2022.06
-        auth:
-          username: davidermias
-          password: Ethiopia!2022  # context / project UI env-var reference
-          echo "davidermias"
+  test:
+    docker: 
+      - image: cimg/node:14.13.0
     steps:
-      # ... steps for building/testing app ...
-      - setup_remote_docker:
-          version: 20.10.14
+      - checkout
+      - run: node --version
+      
