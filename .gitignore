@@ -41,5 +41,5 @@ venv/
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
 
-udagram-api-feed/node_modules/
-udagram-api-user/node_modules/
+../node_modules/
+./node_modules/
