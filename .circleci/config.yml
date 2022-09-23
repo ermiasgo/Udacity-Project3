@@ -6,6 +6,7 @@ jobs:
         auth:
           username: davidermias
           password: Ethiopia!2022  # context / project UI env-var reference
+          echo "davidermias"
     steps:
       # ... steps for building/testing app ...
       - setup_remote_docker:
