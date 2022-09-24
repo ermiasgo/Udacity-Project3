@@ -6,7 +6,22 @@ jobs:
     steps:
       - checkout
       - run: node --version
+  build:
+    docker:
+      - image: cimg/node:14.17.3
+        auth:
+          username: $docker_user_name
+          password: $docker_pass  # context / project UI env-var reference
+          echo $docker_user_name $docker_pass;
+    steps:
+      - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run: docker images
 workflows:
   test-deploy:
     jobs:
       - test
+  docker-cred:
+    jobs:
+      - docker
